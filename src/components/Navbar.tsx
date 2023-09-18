@@ -1,7 +1,6 @@
-import { HeartIcon, NewspaperIcon, HomeIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, NewspaperIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid,
-  NewspaperIcon as NewspaperIconSolid,
-  HomeIcon as HomeIconSolid } from "@heroicons/react/24/solid";
+  NewspaperIcon as NewspaperIconSolid } from "@heroicons/react/24/solid";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -14,28 +13,14 @@ function Navbar() {
     >
       {
         pathname === "/" ? (
-        <HomeIconSolid
-          className="text-green-500 w-8 cursor-pointer"
-          onClick={() => navigate("/")}
-        />
-        ) : (
-        <HomeIcon
-          className="text-green-500 w-8 cursor-pointer"
-          onClick={() => navigate("/")}
-        />
-        )
-      }
-
-      {
-        pathname === "/releases" ? (
         <NewspaperIconSolid
-          className="text-green-500 w-8 cursor-pointer"
-          onClick={() => navigate("/releases")}
+          className="text-green-500 w-6 cursor-pointer"
+          onClick={() => navigate("/")}
         />
         ) : (
         <NewspaperIcon
-          className="text-green-500 w-8 cursor-pointer"
-          onClick={() => navigate("/releases")}
+          className="text-green-500 w-6 cursor-pointer"
+          onClick={() => navigate("/")}
         />
         )
       }
@@ -43,12 +28,12 @@ function Navbar() {
       {
         pathname === "/favorites" ? (
         <HeartIconSolid
-          className="text-green-500 w-8 cursor-pointer"
+          className="text-green-500 w-6 cursor-pointer"
           onClick={() => navigate("/favorites")}
         />
         ) : (
         <HeartIcon
-          className="text-green-500 w-8 cursor-pointer"
+          className="text-green-500 w-6 cursor-pointer"
           onClick={() => navigate("/favorites")}
         />
         )
