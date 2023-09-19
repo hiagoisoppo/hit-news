@@ -12,7 +12,7 @@ interface NewsContextData {
   };
   handleTextFilter: (text: string) => void;
   handleTypeFilter: (type: 'Release' | 'Notícia' | 'Favorite') => void;
-  handleFavoriteNews: () => void;
+  handleFavoriteNews: (item: NewsObject) => void;
 }
 
 const NewsContext = createContext<NewsContextData>({} as NewsContextData);

@@ -3,7 +3,7 @@ import { NewsObject } from "../types";
 
 interface UseLocalStorageReturn {
   favoriteNews: NewsObject[];
-  handleFavoriteNews: () => void;
+  handleFavoriteNews: (item: NewsObject) => void;
 }
 
 function useLocalStorage(): UseLocalStorageReturn {
@@ -12,9 +12,14 @@ function useLocalStorage(): UseLocalStorageReturn {
     return favoriteData ? JSON.parse(favoriteData) : [];
   });
 
-  const handleFavoriteNews = (
-    
-  ) => {};
+  const handleFavoriteNews = (item: NewsObject) => {
+    if (favoriteNews.some(({ id }: NewsObject) => id === item.id)) {
+      const newFavoriteNews = favoriteNews.filter(({ id }: NewsObject) => id !== item.id);
+      setFavoriteNews(newFavoriteNews);
+    } else {
+      setFavoriteNews([...favoriteNews, item]);
+    }
+  };
 
   useEffect(() => {
     localStorage.setItem('favoriteNews', JSON.stringify(favoriteNews));
