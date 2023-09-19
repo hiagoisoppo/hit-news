@@ -23,7 +23,7 @@ function useFilters(): UseFiltersReturn {
     typeFilter: 'Release' | 'Notícia' | 'Favorite';
   }>({
     textFilter: '',
-    typeFilter: 'Release'
+    typeFilter: 'Notícia'
   });
 
   const handleTextFilter = (text: string) => {
