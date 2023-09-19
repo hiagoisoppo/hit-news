@@ -1,10 +1,16 @@
+import { useNews } from "../contexts/NewsProvider";
+
 function SearchBar () {
+  const { filters, handleTextFilter } = useNews();
+
   return (
-    <form
-      className="flex justify-between items-center w-full mt-2"
-    >
-      <input type="text" className="w-full rounded p-2" />
-    </form>
+    <input
+      type="text"
+      placeholder="Digite o termo de busca"
+      value={ filters.textFilter }
+      onChange={ (e) => handleTextFilter(e.target.value) }
+      className="rounded px-2 py-1 w-4/5"
+    />
   )
 }
 
