@@ -8,7 +8,7 @@ function Navbar() {
 
   return (
     <nav
-      className="flex gap-4 p-2"
+      className="flex gap-8 p-2 bg-zinc-800 w-full justify-center"
     >
       <div
         className={
