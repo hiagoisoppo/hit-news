@@ -1,14 +1,12 @@
-import { Outlet } from "react-router-dom";
 import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/outline";
 import { MagnifyingGlassCircleIcon as MagnifyingGlassIconSolid } from "@heroicons/react/24/solid";
 import Navbar from "./Navbar";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 
-function Layout() {
+function Header(){
   const [searchBar, setSearchBar] = useState(false);
   return (
-    <>
       <header
         className="bg-zinc-900 flex flex-col justify-center items-center fixed top-0 left-0 right-0"
       >
@@ -37,13 +35,7 @@ function Layout() {
         { searchBar && <SearchBar /> }
         <Navbar />
       </header>
-      <main
-        className="mt-16 p-4 pt-6 bg-slate-300 min-h-screen"
-      >
-        <Outlet />
-      </main>
-    </>
   )
 }
 
-export default Layout;0
+export default Header;

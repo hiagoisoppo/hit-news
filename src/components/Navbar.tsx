@@ -1,43 +1,83 @@
 import { HeartIcon, NewspaperIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid,
   NewspaperIcon as NewspaperIconSolid } from "@heroicons/react/24/solid";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNews } from "../contexts/NewsProvider";
 
 function Navbar() {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
+  const { filters, handleTypeFilter } = useNews();
 
   return (
     <nav
-      className="flex gap-2"
+      className="flex gap-4 p-2"
     >
-      {
-        pathname === "/" ? (
-        <NewspaperIconSolid
-          className="text-green-500 w-6 cursor-pointer"
-          onClick={() => navigate("/")}
-        />
-        ) : (
-        <NewspaperIcon
-          className="text-green-500 w-6 cursor-pointer"
-          onClick={() => navigate("/")}
-        />
-        )
-      }
+      <div
+        className={
+          `flex text-green-500 gap-1 cursor-pointer 
+          ${filters.typeFilter === "Notícia" ? 'font-bold' : 'font-light'}`
+        }
+        onClick={() => handleTypeFilter("Notícia")}
+      >
+        {
+          filters.typeFilter === "Notícia" ? (
+            <NewspaperIconSolid
+              className="w-5"
+            />
+          ) : (
+            <NewspaperIcon
+              className="w-5"
+            />
+          )
+        }
+        <span>
+          Notícias
+        </span>
+      </div>
 
-      {
-        pathname === "/favorites" ? (
-        <HeartIconSolid
-          className="text-green-500 w-6 cursor-pointer"
-          onClick={() => navigate("/favorites")}
-        />
-        ) : (
-        <HeartIcon
-          className="text-green-500 w-6 cursor-pointer"
-          onClick={() => navigate("/favorites")}
-        />
-        )
-      }
+      <div
+        className={
+          `flex text-green-500 gap-1 cursor-pointer 
+          ${filters.typeFilter === "Release" ? 'font-bold' : 'font-light'}`
+        }
+        onClick={() => handleTypeFilter("Release")}
+      >
+        {
+          filters.typeFilter === "Release" ? (
+            <NewspaperIconSolid
+              className="w-5"
+            />
+          ) : (
+            <NewspaperIcon
+              className="w-5"
+            />
+          )
+        }
+        <span>
+          Releases
+        </span>
+      </div>
+
+      <div
+        className={
+          `flex text-green-500 gap-1 cursor-pointer 
+          ${filters.typeFilter === "Favorite" ? 'font-bold' : 'font-light'}`
+        }
+        onClick={() => handleTypeFilter("Favorite")}
+      >
+        {
+          filters.typeFilter === "Favorite" ? (
+            <HeartIconSolid
+              className="w-5"
+            />
+          ) : (
+            <HeartIcon
+              className="w-5"
+            />
+          )
+        }
+        <span>
+          Favoritos
+        </span>
+      </div>
     </nav>
   )
 }

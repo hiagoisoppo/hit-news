@@ -1,17 +1,18 @@
-import { Routes, Route } from "react-router-dom"
-import Layout from "./components/Layout"
-import News from "./pages/News"
-import Favorites from "./pages/Favorites"
+import Header from "./components/Header"
+import { useNews } from "./contexts/NewsProvider"
 
 function App() {
+  const { filters } = useNews();
 
   return (
-    <Routes>
-      <Route path="/" Component={ Layout }>
-          <Route index Component={ News }/>
-          <Route path="/favorites" Component={ Favorites }/>
-      </Route>
-    </Routes>
+    <>
+      <Header />
+      <main
+        className="mt-24 p-4 pt-6 bg-slate-300 min-h-screen"
+      >
+        <h1>{filters.typeFilter}</h1>
+      </main>
+    </>
   )
 }
 
