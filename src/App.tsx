@@ -15,12 +15,19 @@ function App() {
         className="mt-20 p-3 pt-5 bg-slate-300 min-h-screen flex justify-center items-start flex-wrap gap-6"
       >
         { isLoading ? (
-            <Loading />
+            <>
+              <Loading />
+              <Loading />
+              <Loading />
+              <Loading />
+              <Loading />
+              <Loading />
+            </>
           ) : filters.typeFilter !== 'All' ? (
             news.slice(1, news.length).map((item: NewsObject, index) => <NewsCard key={ index } item={ item } />)
           ) : (
             <>
-              {/* <EmphasisCard item={ news[0] } /> */}
+              <EmphasisCard item={ news[0] } />
               {news.slice(1, news.length).map((item: NewsObject, index) => <NewsCard key={ index } item={ item } />)}
             </>
           )
