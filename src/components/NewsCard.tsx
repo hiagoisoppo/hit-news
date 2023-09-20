@@ -1,4 +1,4 @@
-import useLocalStorage from "../hooks/useLocalStorage";
+import { useNews } from "../contexts/NewsProvider";
 import { NewsObject } from "../types";
 import resolveData from "../utils/resolveData";
 
@@ -6,11 +6,10 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 
 function NewsCard({ item }: { item: NewsObject }) {
-  const { favoriteNews, handleFavoriteNews } = useLocalStorage();
-
+  const { favoriteNews, handleFavoriteNews } = useNews();
   return (
     <article
-      className="bg-slate-300 rounded overflow-hidden shadow-lg w-96 h-96"
+      className="bg-slate-300 rounded-lg shadow-lg w-96 overflow-hidden"
     >
       <a
         href={ item.link }
@@ -40,11 +39,12 @@ function NewsCard({ item }: { item: NewsObject }) {
          border-t border-green-500"
       >
         <span>
-          { resolveData(item.data_publicacao) }
+          { resolveData(item.data_publicacao) === '0' ? 'Hoje' : resolveData(item.data_publicacao) === '1' ? 'Ontem' : `${resolveData(item.data_publicacao)} dias atrás` }
         </span>
 
         <button
           onClick={() => handleFavoriteNews(item)}
+          className="text-green-500"
         >
           {
             favoriteNews.some(({ id }: NewsObject) => id === item.id) ? (

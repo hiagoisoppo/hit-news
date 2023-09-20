@@ -16,7 +16,7 @@ function App() {
         { isLoading ? (
             <Loading />
           ) : (
-            news.map((item: NewsObject, index) => <NewsCard key={ index } item={ item } />)
+            news.slice(1, news.length).map((item: NewsObject, index) => <NewsCard key={ index } item={ item } />)
           )
         }
       </main>

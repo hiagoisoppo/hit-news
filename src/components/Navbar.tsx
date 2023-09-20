@@ -1,6 +1,8 @@
-import { HeartIcon, NewspaperIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, NewspaperIcon, ChartPieIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid,
-  NewspaperIcon as NewspaperIconSolid } from "@heroicons/react/24/solid";
+  NewspaperIcon as NewspaperIconSolid,
+  ChartPieIcon as ChartPieIconSolid,
+  Squares2X2Icon as Squares2X2IconSolid } from "@heroicons/react/24/solid";
 import { useNews } from "../contexts/NewsProvider";
 
 function Navbar() {
@@ -8,11 +10,34 @@ function Navbar() {
 
   return (
     <nav
-      className="flex gap-8 p-2 bg-zinc-800 w-full justify-center"
+      className="flex gap-3 p-2 bg-zinc-800 w-full justify-center"
     >
       <div
         className={
-          `flex text-green-500 gap-1 cursor-pointer 
+          `flex text-green-500 cursor-pointer text-xs items-center 
+          ${filters.typeFilter === "All" ? 'font-bold' : 'font-light'}`
+        }
+        onClick={() => handleTypeFilter("All")}
+      >
+        {
+          filters.typeFilter === "All" ? (
+            <Squares2X2IconSolid
+              className="w-4"
+            />
+          ) : (
+            <Squares2X2Icon
+              className="w-4"
+            />
+          )
+        }
+        <span>
+          Recentes
+        </span>
+      </div>
+
+      <div
+        className={
+          `flex text-green-500 cursor-pointer text-xs items-center 
           ${filters.typeFilter === "Notícia" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => handleTypeFilter("Notícia")}
@@ -20,11 +45,11 @@ function Navbar() {
         {
           filters.typeFilter === "Notícia" ? (
             <NewspaperIconSolid
-              className="w-5"
+              className="w-4"
             />
           ) : (
             <NewspaperIcon
-              className="w-5"
+              className="w-4"
             />
           )
         }
@@ -35,19 +60,19 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 gap-1 cursor-pointer 
+          `flex text-green-500 cursor-pointer text-xs items-center 
           ${filters.typeFilter === "Release" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => handleTypeFilter("Release")}
       >
         {
           filters.typeFilter === "Release" ? (
-            <NewspaperIconSolid
-              className="w-5"
+            <ChartPieIconSolid
+              className="w-4"
             />
           ) : (
-            <NewspaperIcon
-              className="w-5"
+            <ChartPieIcon
+              className="w-4"
             />
           )
         }
@@ -58,7 +83,7 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 gap-1 cursor-pointer 
+          `flex text-green-500 cursor-pointer text-xs items-center 
           ${filters.typeFilter === "Favorite" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => handleTypeFilter("Favorite")}
@@ -66,11 +91,11 @@ function Navbar() {
         {
           filters.typeFilter === "Favorite" ? (
             <HeartIconSolid
-              className="w-5"
+              className="w-4"
             />
           ) : (
             <HeartIcon
-              className="w-5"
+              className="w-4"
             />
           )
         }

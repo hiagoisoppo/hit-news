@@ -1,9 +1,8 @@
 function resolveData( data: any ) {
-  return data.toLocaleDateString( 'pt-BR', {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric'
-  } )
+  const today = Number(new Date());
+  const date = Number(new Date( data ));
+
+  return ((today - date) / 1000 /24 /60 /60).toFixed(0);
 }
 
 export default resolveData;

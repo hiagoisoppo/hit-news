@@ -15,15 +15,18 @@ function useLocalStorage(): UseLocalStorageReturn {
   const handleFavoriteNews = (item: NewsObject) => {
     if (favoriteNews.some(({ id }: NewsObject) => id === item.id)) {
       const newFavoriteNews = favoriteNews.filter(({ id }: NewsObject) => id !== item.id);
-      setFavoriteNews(newFavoriteNews);
+      const sortFavoriteNews = newFavoriteNews.sort((a, b) => b.id - a.id);
+      setFavoriteNews(sortFavoriteNews);
     } else {
-      setFavoriteNews([...favoriteNews, item]);
+      const newFavoriteNews = [...favoriteNews, item];
+      const sortFavoriteNews = newFavoriteNews.sort((a, b) => b.id - a.id);
+      setFavoriteNews(sortFavoriteNews);
     }
   };
 
   useEffect(() => {
     localStorage.setItem('favoriteNews', JSON.stringify(favoriteNews));
-  });
+  }, [favoriteNews]);
 
   return {
     favoriteNews,
