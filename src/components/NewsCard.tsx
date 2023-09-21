@@ -54,6 +54,7 @@ function NewsCard({ item }: { item: NewsObject }) {
             <LinkIcon className="w-5"/>
           </button>
           <button
+            id="favorite-btn"
             onClick={() => handleFavoriteNews(item)}
             className="text-green-500 hover:text-zinc-900 transition-all duration-300"
           >
