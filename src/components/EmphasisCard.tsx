@@ -2,7 +2,9 @@ import { NewsObject } from "../types";
 
 function EmphasisCard({ item }: { item: NewsObject }) {
   return (
-    <h1>EMPHASIS CARD</h1>
+    <div className="w-full flex justify-center items-center">
+      EMPHASIS CARD
+    </div>
   )
 }
 

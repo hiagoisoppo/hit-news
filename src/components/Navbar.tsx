@@ -17,7 +17,10 @@ function Navbar() {
           `flex text-green-500 cursor-pointer text-xs items-center 
           ${filters.typeFilter === "All" ? 'font-bold' : 'font-light'}`
         }
-        onClick={() => handleTypeFilter("All")}
+        onClick={() => {
+          handleTypeFilter("All");
+          window.scrollTo(0, 0);
+        }}
       >
         {
           filters.typeFilter === "All" ? (
@@ -40,7 +43,10 @@ function Navbar() {
           `flex text-green-500 cursor-pointer text-xs items-center 
           ${filters.typeFilter === "Notícia" ? 'font-bold' : 'font-light'}`
         }
-        onClick={() => handleTypeFilter("Notícia")}
+        onClick={() => {
+          handleTypeFilter("Notícia");
+          window.scrollTo(0, 0);
+        }}
       >
         {
           filters.typeFilter === "Notícia" ? (
@@ -63,7 +69,10 @@ function Navbar() {
           `flex text-green-500 cursor-pointer text-xs items-center 
           ${filters.typeFilter === "Release" ? 'font-bold' : 'font-light'}`
         }
-        onClick={() => handleTypeFilter("Release")}
+        onClick={() => {
+          handleTypeFilter("Release");
+          window.scrollTo(0, 0);
+        }}
       >
         {
           filters.typeFilter === "Release" ? (
@@ -86,7 +95,10 @@ function Navbar() {
           `flex text-green-500 cursor-pointer text-xs items-center 
           ${filters.typeFilter === "Favorite" ? 'font-bold' : 'font-light'}`
         }
-        onClick={() => handleTypeFilter("Favorite")}
+        onClick={() => {
+          handleTypeFilter("Favorite");
+          window.scrollTo(0, 0);
+        }}
       >
         {
           filters.typeFilter === "Favorite" ? (

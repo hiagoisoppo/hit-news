@@ -3,7 +3,7 @@ import { useNews } from "../contexts/NewsProvider";
 import { NewsObject } from "../types";
 import resolveData from "../utils/resolveData";
 
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { CursorArrowRaysIcon, HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid, LinkIcon } from "@heroicons/react/24/solid";
 
 function NewsCard({ item }: { item: NewsObject }) {
@@ -23,13 +23,13 @@ function NewsCard({ item }: { item: NewsObject }) {
           className="w-full h-36 object-cover"
         />
         <h1
-          className="font-bold p-3 text-center text-slate-900 text-base"
+          className="font-bold p-3 text-center text-slate-900 h-16 overflow-hidden"
         >
           { item.titulo }
         </h1>
       </a>
       <p
-        className="text-sm text-slate-900 px-4 mb-3"
+        className="text-sm text-slate-900 px-4 mb-3 h-20 overflow-hidden"
       >
         { item.introducao }
       </p>
@@ -69,9 +69,11 @@ function NewsCard({ item }: { item: NewsObject }) {
       <a
         href={ item.link }
         target="_blank"
-        className="bg-zinc-900 text-green-500 font-bold text-sm shadow-md text-center px-5 py-2 w-full"
+        className="bg-zinc-900 text-green-500 font-bold text-sm shadow-md text-center px-5 py-2 w-full
+        flex justify-center items-center gap-2"
       >
         Leia a notícia completa aqui
+        <CursorArrowRaysIcon className="w-5"/>
       </a>
     </article>
   )
