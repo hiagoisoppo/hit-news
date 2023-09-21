@@ -1,25 +1,24 @@
 import { createContext, useContext } from "react";
 import { NewsObject } from "../types";
 import useFilters from "../hooks/useFilters";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 interface NewsContextData {
   isLoading: boolean;
   news: NewsObject[];
   filters: {
     textFilter: string;
-    typeFilter: 'Release' | 'Notícia' | 'Favorite';
+    typeFilter: 'Release' | 'Notícia' | 'Favorite' | 'All';
   };
   handleTextFilter: (text: string) => void;
-  handleTypeFilter: (type: 'Release' | 'Notícia' | 'Favorite') => void;
+  handleTypeFilter: (type: 'Release' | 'Notícia' | 'Favorite' | 'All') => void;
   handleFavoriteNews: (item: NewsObject) => void;
+  favoriteNews: NewsObject[];
 }
 
 const NewsContext = createContext<NewsContextData>({} as NewsContextData);
 
 function NewsProvider({ children }: { children: React.ReactNode }) {
-  const { filters, handleTextFilter, handleTypeFilter, isLoading, news } = useFilters();
-  const { handleFavoriteNews } = useLocalStorage();
+  const { filters, handleTextFilter, handleTypeFilter, isLoading, news, favoriteNews, handleFavoriteNews } = useFilters();
 
   return (
     <NewsContext.Provider
@@ -30,7 +29,8 @@ function NewsProvider({ children }: { children: React.ReactNode }) {
           isLoading,
           handleTextFilter,
           handleTypeFilter,
-          handleFavoriteNews
+          handleFavoriteNews,
+          favoriteNews,
         }
       }
     >

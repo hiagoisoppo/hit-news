@@ -8,22 +8,24 @@ interface UseFiltersReturn {
   news: NewsObject[];
   filters: {
     textFilter: string;
-    typeFilter: 'Release' | 'Notícia' | 'Favorite';
+    typeFilter: 'Release' | 'Notícia' | 'Favorite' | 'All';
   };
   handleTextFilter: (text: string) => void;
-  handleTypeFilter: (type: 'Release' | 'Notícia' | 'Favorite') => void;
+  handleTypeFilter: (type: 'Release' | 'Notícia' | 'Favorite' | 'All') => void;
+  handleFavoriteNews: (item: NewsObject) => void;
+  favoriteNews: NewsObject[];
 }
 
 function useFilters(): UseFiltersReturn {
-  const { favoriteNews } = useLocalStorage();
+  const { favoriteNews, handleFavoriteNews } = useLocalStorage();
   const { data, isLoading } = useFetch();
   const [news, setNews] = useState<NewsObject[]>(data);
   const [filters, setFilters] = useState<{
     textFilter: string;
-    typeFilter: 'Release' | 'Notícia' | 'Favorite';
+    typeFilter: 'Release' | 'Notícia' | 'Favorite' | 'All';
   }>({
     textFilter: '',
-    typeFilter: 'Release'
+    typeFilter: 'All'
   });
 
   const handleTextFilter = (text: string) => {
@@ -33,7 +35,7 @@ function useFilters(): UseFiltersReturn {
     });
   };
 
-  const handleTypeFilter = (type: 'Release' | 'Notícia' | 'Favorite') => {
+  const handleTypeFilter = (type: 'Release' | 'Notícia' | 'Favorite' | 'All') => {
     setFilters({
       ...filters,
       typeFilter: type
@@ -42,10 +44,14 @@ function useFilters(): UseFiltersReturn {
 
   useEffect(() => {
     if (filters.typeFilter === 'Favorite') {
-      const filterType = favoriteNews.filter(({ tipo }: NewsObject) => {
-        return tipo === filters.typeFilter;
+      const filterText = favoriteNews.filter(({ titulo, introducao }: NewsObject) => {
+        const titleFilter = titulo.toLowerCase().includes(filters.textFilter.toLowerCase());
+        const introductionFilter = introducao.toLowerCase().includes(filters.textFilter.toLowerCase());
+        return titleFilter || introductionFilter;
       });
-      const filterText = filterType.filter(({ titulo, introducao }: NewsObject) => {
+      setNews(filterText);
+    } else if (filters.typeFilter === 'All') {
+      const filterText = data.filter(({ titulo, introducao }: NewsObject) => {
         const titleFilter = titulo.toLowerCase().includes(filters.textFilter.toLowerCase());
         const introductionFilter = introducao.toLowerCase().includes(filters.textFilter.toLowerCase());
         return titleFilter || introductionFilter;
@@ -62,7 +68,7 @@ function useFilters(): UseFiltersReturn {
       });
       setNews(filterText);
     }
-  }, [filters])
+  }, [filters, data, favoriteNews])
 
   return {
     isLoading,
@@ -70,6 +76,8 @@ function useFilters(): UseFiltersReturn {
     filters,
     handleTextFilter,
     handleTypeFilter,
+    handleFavoriteNews,
+    favoriteNews,
   }
 }
 
