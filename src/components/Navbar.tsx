@@ -15,7 +15,7 @@ function Navbar() {
     >
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1 
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1 hover:text-zinc-300 transition-all duration-300
           ${filters.typeFilter === "All" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {
@@ -41,7 +41,7 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1 hover:text-zinc-300 transition-all duration-300
           ${filters.typeFilter === "Notícia" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {
@@ -67,7 +67,7 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1 hover:text-zinc-300 transition-all duration-300
           ${filters.typeFilter === "Release" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {
@@ -93,7 +93,7 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1 hover:text-zinc-300 transition-all duration-300
           ${filters.typeFilter === "Favorite" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {

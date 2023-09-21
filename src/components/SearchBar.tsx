@@ -9,7 +9,7 @@ function SearchBar () {
 
   return (
     <div
-      className="flex items-center justify-end text-green-500 gap-1 w-2/3"
+      className="flex items-center justify-end text-green-500 gap-1 w-2/3 hover:text-zinc-300 transition-all duration-300"
     >
       {
         searchBar ? (
@@ -22,13 +22,13 @@ function SearchBar () {
               className="rounded w-11/12 py-1 px-2 bg-zinc-800"
             />
             <MagnifyingGlassIconSolid
-              className="w-8 cursor-pointer"
+              className="w-8 cursor-pointer sm:w-11"
               onClick={() => setSearchBar(!searchBar) }
             />
           </>
         ) : (
           <MagnifyingGlassCircleIcon
-            className="w-8 cursor-pointer"
+            className="w-8 cursor-pointer sm:w-11"
             onClick={() => setSearchBar(!searchBar) }
           />
         )

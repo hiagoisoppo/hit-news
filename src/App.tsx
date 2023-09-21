@@ -41,7 +41,8 @@ function App() {
         <div className="w-full flex justify-center items-center">
           { newsDisplayLimit < news.length ? (
               <button
-              className="bg-green-500 text-white py-3 px-4 rounded-md font-bold flex justify-center items-center gap-2"
+              className="bg-green-500 text-white py-3 px-4 rounded-md font-bold flex justify-center items-center gap-2
+              hover:bg-green-600 transition-all duration-300"
               onClick={ (e) => {
                   e.preventDefault();
                   setNewsDisplayLimit(newsDisplayLimit + 8);
@@ -52,7 +53,8 @@ function App() {
               </button>
             ) : (
               <button
-                className="bg-green-500 text-white py-3 px-4 rounded-md font-bold flex justify-center items-center gap-2"
+                className="bg-green-500 text-white py-3 px-4 rounded-md font-bold flex justify-center items-center gap-2
+                hover:bg-green-600 transition-all duration-300"
                 onClick={ (e) => {
                   e.preventDefault();
                   window.scrollTo(0, 0);

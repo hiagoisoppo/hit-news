@@ -24,7 +24,7 @@ function NewsCard({ item }: { item: NewsObject }) {
           className="w-full h-36 object-cover"
         />
         <h1
-          className="font-bold p-3 text-center text-slate-900 h-16 overflow-hidden"
+          className="font-bold p-3 text-center text-slate-900 h-16 overflow-hidden hover:text-green-500 transition-all duration-300"
         >
           { item.titulo }
         </h1>
@@ -49,13 +49,13 @@ function NewsCard({ item }: { item: NewsObject }) {
               window.navigator.clipboard.writeText(item.link);
               setCopyAlert(!copyAlert);
             }}
-            className="text-green-500"
+            className="text-green-500 hover:text-zinc-900 transition-all duration-300"
           >
             <LinkIcon className="w-5"/>
           </button>
           <button
             onClick={() => handleFavoriteNews(item)}
-            className="text-green-500"
+            className="text-green-500 hover:text-zinc-900 transition-all duration-300"
           >
             {
               favoriteNews.some(({ id }: NewsObject) => id === item.id) ? (
@@ -71,7 +71,7 @@ function NewsCard({ item }: { item: NewsObject }) {
         href={ item.link }
         target="_blank"
         className="bg-zinc-900 text-green-500 font-bold text-sm shadow-md text-center px-5 py-2 w-full
-        flex justify-center items-center gap-2"
+        flex justify-center items-center gap-2 hover:text-zinc-300 transition-all duration-300"
       >
         Leia a notícia completa aqui
         <CursorArrowRaysIcon className="w-5"/>
