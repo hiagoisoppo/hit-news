@@ -1,27 +1,41 @@
-# React + TypeScript + Vite
+<img src="/public/Preview.png" alt="Application Preview" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# :newspaper: [HIT News](https://hitnews.vercel.app/)
 
-Currently, two official plugins are available:
+A developed application to distribute and organize the most recent news, made available through the IBGE API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## :bomb: Features
 
-## Expanding the ESLint configuration
+- Summary of the latest IBGE news.
+- Access the full news, through the link.
+- Possibility to access your favorite news.
+- Possibility to share the news.
+- News date information.
+- This project is responsive.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## :file_folder: Technologies
 
-- Configure the top-level `parserOptions` property like this:
+- [REACT](https://react.dev/)
+- [TYPESCRIPT](https://www.typescriptlang.org/)
+- [TAILWINDCSS](https://tailwindcss.com/)
+- [VITE](https://vitejs.dev/)
+- [VITEST](https://vitest.dev/)
+- [TESTING LIBRARY](https://testing-library.com/)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## :closed_book: How to access
+  If you prefer to just access the application in operation, just access the [deploy](https://hitnews.vercel.app/).
+  - Open the terminal and clone the repository.
+  ```bash
+    git clone git@github.com:hiagoisoppo/hit-news.git
+  ```
+  - Install the dependencies.
+  ```bash
+    npm install
+  ```
+  - Start the development server.
+  ```bash
+    npm run dev
+  ```
+  - Open browser at [http://localhost:3000](http://localhost:3000).
