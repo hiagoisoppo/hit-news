@@ -21,16 +21,22 @@ function SearchBar () {
               onChange={ (e) => handleTextFilter(e.target.value) }
               className="rounded w-11/12 py-1 px-2 bg-zinc-800"
             />
-            <MagnifyingGlassIconSolid
-              className="w-8 cursor-pointer sm:w-11"
+            <button
               onClick={() => setSearchBar(!searchBar) }
-            />
+            >
+              <MagnifyingGlassIconSolid
+                className="w-8 cursor-pointer sm:w-11"
+              />
+            </button>
           </>
         ) : (
-          <MagnifyingGlassCircleIcon
-            className="w-8 cursor-pointer sm:w-11"
+          <button
             onClick={() => setSearchBar(!searchBar) }
-          />
+          >
+            <MagnifyingGlassCircleIcon
+              className="w-8 cursor-pointer sm:w-11"
+            />
+          </button>
         )
       }
     </div>

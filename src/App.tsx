@@ -86,6 +86,4 @@ function App() {
   )
 }
 
-export default App
-
-window.scroll
+export default App;
