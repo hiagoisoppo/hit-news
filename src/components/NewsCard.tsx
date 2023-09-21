@@ -11,7 +11,8 @@ function NewsCard({ item }: { item: NewsObject }) {
   const [copyAlert, setCopyAlert] = useState(false);
   return (
     <article
-      className="bg-slate-300 rounded-lg shadow-lg w-96 overflow-hidden flex flex-col"
+      className="bg-slate-300 rounded-lg shadow-lg w-96 overflow-hidden flex flex-col
+      sm:w-72 md:w-80 lg:w-96"
     >
       <a
         href={ item.link }

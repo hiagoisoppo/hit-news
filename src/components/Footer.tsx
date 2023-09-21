@@ -10,7 +10,7 @@ function Footer() {
         href="https://www.linkedin.com/in/hiagoisoppo/"
         target="_blank"
         className="flex justify-center items-center gap-2 cursor-pointer
-        hover:font-black hover:text-green-500"
+        hover:font-black hover:text-green-500 transition-all duration-300"
       >
         <LinkIcon className="w-6"/>
         Desenvolvido por Hiago Isoppo

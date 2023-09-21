@@ -10,11 +10,12 @@ function Navbar() {
 
   return (
     <nav
-      className="flex gap-3 p-2 bg-zinc-800 w-full justify-center"
+      className="flex gap-3 p-2 bg-zinc-800 w-full justify-center
+      sm:gap-6"
     >
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center 
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1 
           ${filters.typeFilter === "All" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {
@@ -40,7 +41,7 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center 
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1
           ${filters.typeFilter === "Notícia" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {
@@ -51,11 +52,11 @@ function Navbar() {
         {
           filters.typeFilter === "Notícia" ? (
             <NewspaperIconSolid
-              className="w-4"
+              className="w-4 sm:w-6"
             />
           ) : (
             <NewspaperIcon
-              className="w-4"
+              className="w-4 sm:w-6"
             />
           )
         }
@@ -66,7 +67,7 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center 
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1
           ${filters.typeFilter === "Release" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {
@@ -77,11 +78,11 @@ function Navbar() {
         {
           filters.typeFilter === "Release" ? (
             <ChartPieIconSolid
-              className="w-4"
+              className="w-4 sm:w-6"
             />
           ) : (
             <ChartPieIcon
-              className="w-4"
+              className="w-4 sm:w-6"
             />
           )
         }
@@ -92,7 +93,7 @@ function Navbar() {
 
       <div
         className={
-          `flex text-green-500 cursor-pointer text-xs items-center 
+          `flex text-green-500 cursor-pointer text-xs items-center sm:text-lg sm:gap-1
           ${filters.typeFilter === "Favorite" ? 'font-bold' : 'font-light'}`
         }
         onClick={() => {
@@ -103,11 +104,11 @@ function Navbar() {
         {
           filters.typeFilter === "Favorite" ? (
             <HeartIconSolid
-              className="w-4"
+              className="w-4 sm:w-6"
             />
           ) : (
             <HeartIcon
-              className="w-4"
+              className="w-4 sm:w-6"
             />
           )
         }

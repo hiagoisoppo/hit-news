@@ -10,7 +10,8 @@ function Header(){
           className="flex items-center p-2 w-full justify-between"
         >
           <h1
-            className="text-green-500 text-xl font-bold w-1/3"
+            className="text-green-500 text-xl font-bold w-1/3
+            sm:text-3xl md:text-4xl"
           >
             HIT News
           </h1>
