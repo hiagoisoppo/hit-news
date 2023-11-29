@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { screen, waitForElementToBeRemoved, render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import MOCK_RESPONSE from './mockData';
 import App from '../App';
 import { NewsProvider } from '../contexts/NewsProvider';
